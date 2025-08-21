@@ -1,1 +1,30 @@
+nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+}
 
+.nav-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    width: 70%;
+    gap: 32px;
+    font-size: 16px;
+    padding: 24px 0;
+}
+
+.link-item{
+    padding: 0 12px;
+}
+
+.p-button{
+    background-color: #101b24;
+    border: none;
+    font-family: 'quicksand', sans-serif;
+    font-weight: 500;
+    margin: 0;
+}
