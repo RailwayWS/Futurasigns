@@ -19,6 +19,7 @@ nav{
 
 .link-item{
     padding: 0 12px;
+    cursor: pointer;
 }
 
 .p-button{
@@ -28,3 +29,55 @@ nav{
     font-weight: 500;
     margin: 0;
 }
+
+.hero-container{
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    align-items: center;
+    justify-content: center;
+    width: 70%;
+    gap: 10%;
+    height: 100%;
+}
+
+.hero-info{
+    display: flex;
+    flex-direction: column;
+    width: 45%;
+}
+
+.hero-buttons{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.hero-container img{
+    width: 45%;
+    height: auto;
+    border-radius: 25px;
+}
+
+.hero-container button{
+    padding: 15px 40px;
+    width: 50%;
+    background: #101b24;
+    color: white;
+    border-radius: 25px;
+    border: none;
+    font-size: 16px;
+    font-family: 'quicksand', sans-serif;
+}
+
+.hero-container .button-invert{
+    padding: 15px 40px;
+    width: 50%;
+    background: transparent;
+    color: #101b24;
+    border-radius: 25px;
+    border: 2px solid #101b24;
+    font-size: 16px;
+    font-family: 'quicksand', sans-serif;
+}
+
