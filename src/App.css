@@ -45,6 +45,7 @@ nav{
     display: flex;
     flex-direction: column;
     width: 45%;
+    gap: 40px;
 }
 
 .hero-buttons{
@@ -89,11 +90,14 @@ nav{
     align-items: center;
     justify-content: center;
     width: 70%;
-    gap: 10%;
-    height: 100vh;
+    gap: 150px;
 }
 
-
+.about-spacing{
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
 
 
 .about-heading{
@@ -114,7 +118,7 @@ nav{
     width: 100%;
     align-items: center;
     justify-content: center;
-    gap: 15px;
+    gap: 35px;
 }
 
 .about-card{
@@ -139,6 +143,73 @@ nav{
     text-align: center;
 }
 
+.stats-container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 100px;
+}
+
+.stats-spacing{
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.stats-spacing p{
+    text-align: center;
+    width: 70%;
+    font-weight: bold;
+    margin: auto;
+}
+
+.stats-info{
+    display: flex;
+    flex-direction: column;
+}
+
+.stats-card{
+    display: flex;
+    flex-direction: row;
+    width: 40%;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.stats-card img{
+    width: 150px;
+    height: auto;
+
+}
+
+.stats-desc{
+    font-size: 14px;
+    text-align: center;
+}
+
+.stats-big{
+    font-size: 2em;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+
+.portfolio-container{
+    width: 70%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.product-item img{
+    width: 400px;
+    height: 250px;
+}
+
 
 
 .about-card img{
@@ -147,14 +218,15 @@ nav{
 }
 
 .contact-container{
-    display: inline-grid;
-    grid-template-columns: 20% 70%;
-    align-self: center;
-    gap: 200px;
-
-    margin-bottom: 100px;
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    align-items: center;
+    justify-content: center;
     width: 70%;
-
+    gap: 10%;
+    height: 100%;
+    margin-bottom: 100px;
 }
 
 .contact-info{
@@ -162,8 +234,6 @@ nav{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
-    padding: 30px 0px;
     gap: 50px;
 }
 
@@ -181,22 +251,23 @@ nav{
 .contact-form{
     display: flex;
     flex-direction: column;
-
-    padding: 30px 50px;
-    gap: 40px;
+    gap: 20px;
+    width: 70%;
 }
 
 .contact-form input{
     padding: 10px 20px;
 
-    width: auto;
+    width: 100%;
     height: 50px;
 
     background: #FFFFFF;
     border: 3px solid #9F9F9F;
     border-radius: 15px;
+    font-size: 16px;
+    font-weight: 600;
+    font-family: 'quicksand', sans-serif;
 
-    font-size: medium;
 }
 
 .contact-form textarea{
@@ -214,16 +285,26 @@ nav{
     border: 3px solid #9F9F9F;
     border-radius: 15px;
 
-    font-size: large;
+    font-size: 16px;
+    font-weight: 600;
+    font-family: 'quicksand', sans-serif;
 }
 
 .contact-form button{
     border-radius: 15px;
-    background: black;
+    background: #101b24;
     color: white;
     font-size: medium;
+    border: none;
+    font-family: 'quicksand';
+    font-weight: 600;
 
     width: 200px;
     height: 40px;
+}
+
+.contact-info p, h3{
+    text-align: center;
+    margin: 0;
 }
 
