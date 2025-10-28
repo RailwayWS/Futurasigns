@@ -8,3 +8,14 @@
 *.njsproj
 *.sln
 *.sw?
+
+#LATEX STUFF
+*.aux
+*.lof
+*.log
+*.lot
+*.fls
+*.out
+*.toc
+*.synctex.gz
+*.fdb_latexmk
