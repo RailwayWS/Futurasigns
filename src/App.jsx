@@ -13,47 +13,19 @@ export default function App() {
             label: "About",
             bgColor: "#101b24",
             textColor: "#fff",
-            links: [
-                {
-                    label: "Read More",
-                    scrollTo: "about",
-                    ariaLabel: "Read more about us",
-                },
-                {
-                    label: "Statistics",
-                    scrollTo: "stats",
-                    ariaLabel: "View our statistics",
-                },
-            ],
+            links: [],
         },
         {
             label: "Portfolio",
             bgColor: "#1a2730",
             textColor: "#fff",
-            links: [
-                {
-                    label: "Our Work",
-                    scrollTo: "portfolio",
-                    ariaLabel: "View our portfolio",
-                },
-            ],
+            links: [],
         },
         {
-            label: "Where To Find Us",
+            label: "Contact Us",
             bgColor: "#24333c",
             textColor: "#fff",
-            links: [
-                {
-                    label: "Address",
-                    ariaLabel: "View our address on Google Maps",
-                    isExternal: true,
-                },
-                {
-                    label: "Email",
-                    ariaLabel: "Send us an email",
-                    isExternal: true,
-                },
-            ],
+            links: [],
         },
     ];
     return (

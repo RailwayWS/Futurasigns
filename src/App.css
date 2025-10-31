@@ -12,29 +12,66 @@
     margin: auto;
     align-items: center;
     justify-content: center;
-    width: 70%;
+    width: 100%;
     gap: 10%;
+    height: 100vh;
+    min-height: 100vh;
+    margin-top: 0;
+    padding: 0 15%;
+    position: relative;
+}
+
+.hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
     height: 100%;
-    margin-top: 200px;
+    opacity: 1;
+    z-index: 0;
+}
+
+.hero-background::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        to bottom,
+        rgba(242, 242, 242, 0) 0%,
+        rgba(242, 242, 242, 0) 40%,
+        rgba(242, 242, 242, 0) 70%,
+        rgba(242, 242, 242, 0.1) 90%,
+        rgba(242, 242, 242, 1) 100%
+    );
+    z-index: 1;
 }
 
 .hero-info {
     display: flex;
+    align-items: center;
     flex-direction: column;
-    width: 45%;
+    width: 60%;
     gap: 40px;
+    z-index: 1;
 }
 
 .hero-buttons {
     display: flex;
+    align-items: center;
+    justify-content: center;
     flex-direction: row;
     gap: 20px;
+    width: 70%;
 }
 
 .hero-container img {
     width: 45%;
     height: auto;
     border-radius: 25px;
+    z-index: 1;
 }
 
 .hero-container button {
@@ -46,6 +83,8 @@
     border: none;
     font-size: 16px;
     font-family: "quicksand", sans-serif;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
 }
 
 .hero-container .button-invert {
@@ -57,6 +96,12 @@
     border: 2px solid #101b24;
     font-size: 16px;
     font-family: "quicksand", sans-serif;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.button-invert {
+    background: lch(100% 0.01 296.81 / 0.7) !important;
 }
 
 .about-container {
@@ -99,23 +144,28 @@
 .about-card {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 15px;
     align-items: center;
-    border: 2px solid #101b24;
-    border-radius: 50px;
-    padding: 15px;
+    border: 1px solid #101b244f;
+    border-radius: 16px;
+    padding: 30px 20px;
     width: 25%;
-    height: 375px;
+    height: 400px;
+    background-color: white;
+    box-shadow: #101b241a 0px 4px 12px;
 }
 
 .card-heading {
-    font-size: 18px;
+    font-size: 22px;
     font-weight: bold;
     text-align: center;
+    line-height: 1.3;
 }
 
 .card-text {
     text-align: center;
+    font-size: 15px;
+    line-height: 1.5;
 }
 
 .stats-container {
@@ -184,7 +234,7 @@
 }
 
 .about-card img {
-    width: 100px;
+    width: 120px;
     height: auto;
 }
 

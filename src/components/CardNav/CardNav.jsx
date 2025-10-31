@@ -26,7 +26,7 @@ const CardNav = ({
 
     const calculateHeight = () => {
         const navEl = navRef.current;
-        if (!navEl) return 260;
+        if (!navEl) return 100;
 
         const isMobile = window.matchMedia("(max-width: 768px)").matches;
         if (isMobile) {
@@ -56,7 +56,7 @@ const CardNav = ({
                 return topBar + contentHeight + padding;
             }
         }
-        return 260;
+        return 135;
     };
 
     const createTimeline = () => {
@@ -170,7 +170,7 @@ const CardNav = ({
                         <img src={logo} alt={logoAlt} className="logo" />
                     </div>
 
-                    <Link
+                    {/* <Link
                         type="button"
                         className="card-nav-cta-button"
                         to={buttonScrollTo}
@@ -179,7 +179,7 @@ const CardNav = ({
                         onClick={handleLinkClick}
                     >
                         Contact Us
-                    </Link>
+                    </Link> */}
                 </div>
 
                 <div className="card-nav-content" aria-hidden={!isExpanded}>
