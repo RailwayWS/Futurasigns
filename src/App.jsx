@@ -66,6 +66,8 @@ export default function App() {
                 menuColor="#101b24"
                 buttonBgColor="#101b24"
                 buttonTextColor="#fff"
+                buttonLabel="Contact Us"
+                buttonScrollTo="contact"
                 ease="power3.out"
             />
             <Home />
