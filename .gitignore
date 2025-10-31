@@ -9,6 +9,9 @@
 *.sln
 *.sw?
 
+# Dependencies
+node_modules
+
 #LATEX STUFF
 *.aux
 *.lof
