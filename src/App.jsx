@@ -5,52 +5,61 @@ import About from "./components/About";
 import Stats from "./components/Stats";
 import Portfolio from "./components/Portfolio";
 import Contact from "./components/Contact";
-import trust from "./assets/trust.png";
+import logo from "./assets/logo.png";
 
 export default function App() {
     const navItems = [
         {
-            label: "Home",
+            label: "About",
             bgColor: "#101b24",
             textColor: "#fff",
-            scrollTo: "home",
-            links: [],
-        },
-        {
-            label: "About",
-            bgColor: "#1a2730",
-            textColor: "#fff",
-            scrollTo: "about",
-            links: [],
-        },
-        {
-            label: "Stats",
-            bgColor: "#24333c",
-            textColor: "#fff",
-            scrollTo: "stats",
-            links: [],
+            links: [
+                {
+                    label: "Read More",
+                    scrollTo: "about",
+                    ariaLabel: "Read more about us",
+                },
+                {
+                    label: "Statistics",
+                    scrollTo: "stats",
+                    ariaLabel: "View our statistics",
+                },
+            ],
         },
         {
             label: "Portfolio",
-            bgColor: "#2e3f48",
+            bgColor: "#1a2730",
             textColor: "#fff",
-            scrollTo: "portfolio",
-            links: [],
+            links: [
+                {
+                    label: "Our Work",
+                    scrollTo: "portfolio",
+                    ariaLabel: "View our portfolio",
+                },
+            ],
         },
         {
-            label: "Contact",
-            bgColor: "#384b54",
+            label: "Where To Find Us",
+            bgColor: "#24333c",
             textColor: "#fff",
-            scrollTo: "contact",
-            links: [],
-            isButton: true,
+            links: [
+                {
+                    label: "Address",
+                    ariaLabel: "View our address on Google Maps",
+                    isExternal: true,
+                },
+                {
+                    label: "Email",
+                    ariaLabel: "Send us an email",
+                    isExternal: true,
+                },
+            ],
         },
     ];
-
     return (
         <PrimeReactProvider>
             <CardNav
-                logo={trust}
+                logo={logo}
                 logoAlt="Futurasigns Logo"
                 items={navItems}
                 baseColor="#fff"

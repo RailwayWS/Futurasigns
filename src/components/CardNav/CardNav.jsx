@@ -171,7 +171,7 @@ const CardNav = ({
                             color: buttonTextColor,
                         }}
                     >
-                        Get Started
+                        Contact Us
                     </button>
                 </div>
 

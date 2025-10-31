@@ -1,12 +1,4 @@
-nav{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    width: 100vw;
-}
-
-.nav-container{
+.nav-container {
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
@@ -17,20 +9,20 @@ nav{
     padding: 24px 0;
 }
 
-.link-item{
+.link-item {
     padding: 0 12px;
     cursor: pointer;
 }
 
-.p-button{
+.p-button {
     background-color: #101b24;
     border: none;
-    font-family: 'quicksand', sans-serif;
+    font-family: "quicksand", sans-serif;
     font-weight: 500;
     margin: 0;
 }
 
-.hero-container{
+.hero-container {
     display: flex;
     flex-direction: row;
     margin: auto;
@@ -39,28 +31,29 @@ nav{
     width: 70%;
     gap: 10%;
     height: 100%;
+    margin-top: 200px;
 }
 
-.hero-info{
+.hero-info {
     display: flex;
     flex-direction: column;
     width: 45%;
     gap: 40px;
 }
 
-.hero-buttons{
+.hero-buttons {
     display: flex;
     flex-direction: row;
     gap: 20px;
 }
 
-.hero-container img{
+.hero-container img {
     width: 45%;
     height: auto;
     border-radius: 25px;
 }
 
-.hero-container button{
+.hero-container button {
     padding: 15px 40px;
     width: 50%;
     background: #101b24;
@@ -68,10 +61,10 @@ nav{
     border-radius: 25px;
     border: none;
     font-size: 16px;
-    font-family: 'quicksand', sans-serif;
+    font-family: "quicksand", sans-serif;
 }
 
-.hero-container .button-invert{
+.hero-container .button-invert {
     padding: 15px 40px;
     width: 50%;
     background: transparent;
@@ -79,11 +72,10 @@ nav{
     border-radius: 25px;
     border: 2px solid #101b24;
     font-size: 16px;
-    font-family: 'quicksand', sans-serif;
+    font-family: "quicksand", sans-serif;
 }
 
-
-.about-container{
+.about-container {
     display: flex;
     flex-direction: column;
     margin: auto;
@@ -93,26 +85,25 @@ nav{
     gap: 150px;
 }
 
-.about-spacing{
+.about-spacing {
     display: flex;
     flex-direction: column;
     gap: 50px;
 }
 
-
-.about-heading{
+.about-heading {
     display: flex;
     flex-direction: column;
     gap: 45px;
 }
 
-.about-text{
+.about-text {
     font-size: 30px;
     font-weight: bold;
     text-align: center;
 }
 
-.about-info{
+.about-info {
     display: flex;
     flex-direction: row;
     width: 100%;
@@ -121,7 +112,7 @@ nav{
     gap: 35px;
 }
 
-.about-card{
+.about-card {
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -133,17 +124,17 @@ nav{
     height: 375px;
 }
 
-.card-heading{
+.card-heading {
     font-size: 18px;
     font-weight: bold;
     text-align: center;
 }
 
-.card-text{
+.card-text {
     text-align: center;
 }
 
-.stats-container{
+.stats-container {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -151,25 +142,25 @@ nav{
     gap: 100px;
 }
 
-.stats-spacing{
+.stats-spacing {
     display: flex;
     flex-direction: column;
     gap: 50px;
 }
 
-.stats-spacing p{
+.stats-spacing p {
     text-align: center;
     width: 70%;
     font-weight: bold;
     margin: auto;
 }
 
-.stats-info{
+.stats-info {
     display: flex;
     flex-direction: column;
 }
 
-.stats-card{
+.stats-card {
     display: flex;
     flex-direction: row;
     width: 40%;
@@ -178,26 +169,24 @@ nav{
     gap: 20px;
 }
 
-.stats-card img{
+.stats-card img {
     width: 150px;
     height: auto;
-
 }
 
-.stats-desc{
+.stats-desc {
     font-size: 14px;
     text-align: center;
 }
 
-.stats-big{
+.stats-big {
     font-size: 2em;
     font-weight: bold;
     text-transform: uppercase;
     text-align: center;
 }
 
-
-.portfolio-container{
+.portfolio-container {
     width: 70%;
     margin: auto;
     display: flex;
@@ -205,19 +194,17 @@ nav{
     gap: 50px;
 }
 
-.product-item img{
+.product-item img {
     width: 400px;
     height: 250px;
 }
 
-
-
-.about-card img{
+.about-card img {
     width: 100px;
     height: auto;
 }
 
-.contact-container{
+.contact-container {
     display: flex;
     flex-direction: row;
     margin: auto;
@@ -229,7 +216,7 @@ nav{
     margin-bottom: 100px;
 }
 
-.contact-info{
+.contact-info {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -237,40 +224,39 @@ nav{
     gap: 50px;
 }
 
-.contact-card img{
+.contact-card img {
     width: 20%;
 }
 
-.contact-card{
+.contact-card {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 60%;
 }
 
-.contact-form{
+.contact-form {
     display: flex;
     flex-direction: column;
     gap: 20px;
     width: 70%;
 }
 
-.contact-form input{
+.contact-form input {
     padding: 10px 20px;
 
     width: 100%;
     height: 50px;
 
-    background: #FFFFFF;
-    border: 3px solid #9F9F9F;
+    background: #ffffff;
+    border: 3px solid #9f9f9f;
     border-radius: 15px;
     font-size: 16px;
     font-weight: 600;
-    font-family: 'quicksand', sans-serif;
-
+    font-family: "quicksand", sans-serif;
 }
 
-.contact-form textarea{
+.contact-form textarea {
     padding: 10px 20px;
 
     width: auto;
@@ -282,29 +268,29 @@ nav{
     min-width: 80%;
 
     background: Transparent;
-    border: 3px solid #9F9F9F;
+    border: 3px solid #9f9f9f;
     border-radius: 15px;
 
     font-size: 16px;
     font-weight: 600;
-    font-family: 'quicksand', sans-serif;
+    font-family: "quicksand", sans-serif;
 }
 
-.contact-form button{
+.contact-form button {
     border-radius: 15px;
     background: #101b24;
     color: white;
     font-size: medium;
     border: none;
-    font-family: 'quicksand';
+    font-family: "quicksand";
     font-weight: 600;
 
     width: 200px;
     height: 40px;
 }
 
-.contact-info p, h3{
+.contact-info p,
+h3 {
     text-align: center;
     margin: 0;
 }
-
