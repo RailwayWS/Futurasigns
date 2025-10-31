@@ -1,14 +1,23 @@
 import { Element } from "react-scroll";
 import placeholder1 from "../assets/Placeholders/ph1.jpeg";
 import { Reveal } from "./Reveal";
+import TextType from "./TextType/TextType";
 
 export default function Home() {
     return (
         <Reveal>
             <Element name="home" className="hero-container">
                 <div className="hero-info">
-                    <h1>Your Trusted Signage Partner in Cape Town</h1>
-                    <p>
+                    <h1>
+                        <TextType
+                            text={["Your Trusted Signage Partner in Cape Town"]}
+                            typingSpeed={75}
+                            pauseDuration={1500}
+                            showCursor={true}
+                            cursorCharacter="|"
+                        />
+                    </h1>
+                    {/* <p>
                         Established in 1986, Futura Signs is Cape Town's trusted
                         partner for large-format billboards and custom
                         signboards. We listen first, then deliver tailored
@@ -28,7 +37,7 @@ export default function Home() {
                         a multi-site rollout, expect quality materials, precise
                         workmanship and a reliable finish that thrives in Cape
                         Town's conditions.
-                    </p>
+                    </p> */}
                     <div className="hero-buttons">
                         <button> See our work</button>
                         <button className="button-invert"> Find us</button>
