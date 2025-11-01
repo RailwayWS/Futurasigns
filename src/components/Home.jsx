@@ -2,7 +2,7 @@ import { Element } from "react-scroll";
 import placeholder1 from "../assets/Placeholders/ph1.jpeg";
 import { Reveal } from "./Reveal";
 import TextType from "./TextType/TextType";
-import background from "../assets/background.jpg";
+import background from "../assets/background2.jpg";
 
 export default function Home() {
     return (
