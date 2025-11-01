@@ -18,7 +18,9 @@ export default function About() {
                     </div>
                     <div className="about-info">
                         <div className="about-card">
-                            <img src={ad} alt="ad" />
+                            <div className="card-icon-wrapper">
+                                <img src={ad} alt="ad" />
+                            </div>
                             <div className="card-heading">
                                 Billboards Built to Last
                             </div>
@@ -27,10 +29,13 @@ export default function About() {
                                 and installation. Trusted for decades for
                                 structures that endure.
                             </div>
+                            <button className="card-button">READ MORE</button>
                         </div>
 
                         <div className="about-card">
-                            <img src={relocate} alt="relocation" />
+                            <div className="card-icon-wrapper">
+                                <img src={relocate} alt="relocation" />
+                            </div>
                             <div className="card-heading">
                                 Relocation & Refurbishment
                             </div>
@@ -39,10 +44,13 @@ export default function About() {
                                 refurbishment services — carefully dismantling,
                                 storing, and reinstalling at new locations.
                             </div>
+                            <button className="card-button">READ MORE</button>
                         </div>
 
                         <div className="about-card">
-                            <img src={create} alt="custom signage" />
+                            <div className="card-icon-wrapper">
+                                <img src={create} alt="custom signage" />
+                            </div>
                             <div className="card-heading">
                                 Custom Signage Solutions
                             </div>
@@ -50,10 +58,13 @@ export default function About() {
                                 Beyond billboards, we create a wide range of
                                 custom signage. If you need it, we can make it.
                             </div>
+                            <button className="card-button">READ MORE</button>
                         </div>
 
                         <div className="about-card">
-                            <img src={trust} alt="trust" />
+                            <div className="card-icon-wrapper">
+                                <img src={trust} alt="trust" />
+                            </div>
                             <div className="card-heading">
                                 Your Trusted Partner
                             </div>
@@ -62,6 +73,7 @@ export default function About() {
                                 excellent service, and competitive pricing
                                 across Cape Town.
                             </div>
+                            <button className="card-button">READ MORE</button>
                         </div>
                     </div>
                     <div className="about-text">
