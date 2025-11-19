@@ -91,7 +91,7 @@
 .hero-container .button-invert {
     padding: 15px 40px;
     width: 50%;
-    background: transparent;
+    background: rgb(255, 255, 255, 0.8);
     color: #101b24;
     border-radius: 25px;
     border: 2px solid #101b24;
@@ -99,10 +99,6 @@
     font-family: "quicksand", sans-serif;
     cursor: pointer;
     transition: all 0.3s ease;
-}
-
-.button-invert {
-    background: lch(100% 0.01 296.81 / 0.7) !important;
 }
 
 .about-container {
@@ -204,23 +200,33 @@
 }
 
 .card-button {
+    border-radius: 8px;
     background-color: #101b24;
-    color: white;
-    border: none;
-    padding: 12px 32px;
-    font-size: 14px;
-    font-weight: 600;
-    letter-spacing: 1px;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    margin-top: auto;
+    color: #ffffff;
+    font-size: medium;
     font-family: "quicksand", sans-serif;
+    font-weight: 600;
+    width: 200px;
+    height: 40px;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+    transition: all 0.2s ease-in-out;
+    margin-top: auto;
 }
 
 .card-button:hover {
-    background-color: #1a2730;
+    background: rgb(16, 27, 36, 0.95);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15), 0 3px 6px rgba(0, 0, 0, 0.1);
     transform: translateY(-2px);
+}
+
+.card-button:active {
+    background: rgb(16, 27, 36, 0.9);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1), 0 0 0 rgba(0, 0, 0, 0);
+    transform: translateY(1px);
+    transition: all 0.1s ease-in-out;
 }
 
 .stats-container {
@@ -256,10 +262,7 @@
     justify-content: center;
     align-items: center;
     gap: 20px;
-
-    align-items: center;
     padding: 20px;
-
     background: #ffffff;
     box-shadow: 0px 20px 26px rgba(0, 0, 0, 0.16);
     border-radius: 25px;
@@ -293,11 +296,6 @@
 .product-item img {
     width: 400px;
     height: 250px;
-}
-
-.about-card img {
-    width: 120px;
-    height: auto;
 }
 
 .contact-container {
@@ -348,10 +346,8 @@
 
 .contact-form input {
     padding: 10px 20px;
-
     width: 100%;
     height: 50px;
-
     background: transparent;
     border: 3px solid #9f9f9f;
     border-radius: 15px;
@@ -359,27 +355,25 @@
     font-weight: 600;
     font-family: "quicksand", sans-serif;
     outline: none;
+    color: white;
 }
 
 .contact-form textarea {
     padding: 10px 20px;
-
     width: auto;
     height: 200px;
-
     max-height: 250px;
     max-width: 100%;
     min-height: 50px;
     min-width: 80%;
-
-    background: Transparent;
+    background: transparent;
     border: 3px solid #9f9f9f;
     border-radius: 15px;
-
     font-size: 16px;
     font-weight: 600;
     font-family: "quicksand", sans-serif;
     outline: none;
+    color: white;
 }
 
 .contact-form button {
@@ -387,16 +381,32 @@
     background: white;
     color: #101b24;
     font-size: medium;
-    border: none;
-    font-family: "quicksand";
+    font-family: "quicksand", sans-serif;
     font-weight: 600;
-
     width: 200px;
     height: 40px;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+    transition: all 0.2s ease-in-out;
+}
+
+.contact-form button:hover {
+    background: #f0f0f0;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15), 0 3px 6px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+}
+
+.contact-form button:active {
+    background: #e0e0e0;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1), 0 0 0 rgba(0, 0, 0, 0);
+    transform: translateY(1px);
+    transition: all 0.1s ease-in-out;
 }
 
 .contact-info p,
-h3 {
+.contact-info h3 {
     text-align: center;
     margin: 0;
 }
