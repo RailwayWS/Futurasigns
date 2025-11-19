@@ -1,7 +1,7 @@
 import { Element } from "react-scroll";
 import car from "../assets/car.png";
-import calendar from "../assets/calendar(1).png";
-import group from "../assets/group.png";
+import calendar from "../assets/calendar.png";
+import group from "../assets/people.png";
 import { Reveal } from "./Reveal";
 import CountUp from "react-countup";
 import { useInView } from "react-intersection-observer";
