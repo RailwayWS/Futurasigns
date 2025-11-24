@@ -84,3 +84,7 @@ a {
     transform: translateZ(0);
     backface-visibility: hidden;
 }
+
+.reveal-content {
+    min-height: 60vh;
+}

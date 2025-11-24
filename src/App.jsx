@@ -8,6 +8,7 @@ import Contact from "./components/Contact";
 import logo from "./assets/logo.png";
 import { useState } from "react";
 import Loading from "./components/loading";
+import Reveal from "./components/Reveal";
 
 export default function App() {
     const [isLoaded, setIsLoaded] = useState(false);
@@ -55,11 +56,20 @@ export default function App() {
                         buttonScrollTo="contact"
                         ease="power3.out"
                     />
-                    <Home />
-                    <About />
-                    <Stats />
-                    <Portfolio />
-                    <Contact />
+
+                    <Home isLoaded={isLoaded} />
+                    <Reveal shouldAnimate={isLoaded}>
+                        <About />
+                    </Reveal>
+                    <Reveal shouldAnimate={isLoaded}>
+                        <Stats />
+                    </Reveal>
+                    <Reveal shouldAnimate={isLoaded}>
+                        <Portfolio />
+                    </Reveal>
+                    <Reveal shouldAnimate={isLoaded}>
+                        <Contact />
+                    </Reveal>
                 </PrimeReactProvider>
             </div>
         </>
