@@ -9,7 +9,7 @@ export default function Loading({ onComplete }) {
             setTimeout(() => {
                 setIsLoading(false);
                 onComplete();
-            }, 500); // Small buffer
+            }, 2000); // Small buffer
         };
 
         if (document.readyState === "complete") {
