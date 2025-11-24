@@ -1,5 +1,6 @@
 import { useLayoutEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
+import { Link } from "react-scroll";
 // use your own icon import if react-icons is not available
 import { GoArrowUpRight } from "react-icons/go";
 import "./CardNav.css";
@@ -14,6 +15,8 @@ const CardNav = ({
     menuColor,
     buttonBgColor,
     buttonTextColor,
+    buttonLabel = "Contact Us",
+    buttonScrollTo = "contact",
 }) => {
     const [isHamburgerOpen, setIsHamburgerOpen] = useState(false);
     const [isExpanded, setIsExpanded] = useState(false);
@@ -23,7 +26,7 @@ const CardNav = ({
 
     const calculateHeight = () => {
         const navEl = navRef.current;
-        if (!navEl) return 260;
+        if (!navEl) return 100;
 
         const isMobile = window.matchMedia("(max-width: 768px)").matches;
         if (isMobile) {
@@ -53,7 +56,7 @@ const CardNav = ({
                 return topBar + contentHeight + padding;
             }
         }
-        return 260;
+        return 135;
     };
 
     const createTimeline = () => {
@@ -133,6 +136,10 @@ const CardNav = ({
         }
     };
 
+    const handleLinkClick = () => {
+        toggleMenu();
+    };
+
     const setCardRef = (i) => (el) => {
         if (el) cardsRef.current[i] = el;
     };
@@ -163,16 +170,16 @@ const CardNav = ({
                         <img src={logo} alt={logoAlt} className="logo" />
                     </div>
 
-                    <button
+                    {/* <Link
                         type="button"
                         className="card-nav-cta-button"
-                        style={{
-                            backgroundColor: buttonBgColor,
-                            color: buttonTextColor,
-                        }}
+                        to={buttonScrollTo}
+                        smooth={true}
+                        duration={500}
+                        onClick={handleLinkClick}
                     >
-                        Get Started
-                    </button>
+                        Contact Us
+                    </Link> */}
                 </div>
 
                 <div className="card-nav-content" aria-hidden={!isExpanded}>
@@ -188,20 +195,49 @@ const CardNav = ({
                         >
                             <div className="nav-card-label">{item.label}</div>
                             <div className="nav-card-links">
-                                {item.links?.map((lnk, i) => (
-                                    <a
-                                        key={`${lnk.label}-${i}`}
-                                        className="nav-card-link"
-                                        href={lnk.href}
-                                        aria-label={lnk.ariaLabel}
-                                    >
-                                        <GoArrowUpRight
-                                            className="nav-card-link-icon"
-                                            aria-hidden="true"
-                                        />
-                                        {lnk.label}
-                                    </a>
-                                ))}
+                                {item.links?.map((lnk, i) =>
+                                    lnk.isExternal ? (
+                                        <a
+                                            key={`${lnk.label}-${i}`}
+                                            className="nav-card-link"
+                                            href={lnk.href}
+                                            target={
+                                                lnk.href?.startsWith("mailto:")
+                                                    ? "_self"
+                                                    : "_blank"
+                                            }
+                                            rel={
+                                                lnk.href?.startsWith("mailto:")
+                                                    ? ""
+                                                    : "noopener noreferrer"
+                                            }
+                                            aria-label={lnk.ariaLabel}
+                                            onClick={handleLinkClick}
+                                        >
+                                            <GoArrowUpRight
+                                                className="nav-card-link-icon"
+                                                aria-hidden="true"
+                                            />
+                                            {lnk.label}
+                                        </a>
+                                    ) : (
+                                        <Link
+                                            key={`${lnk.label}-${i}`}
+                                            className="nav-card-link"
+                                            to={lnk.scrollTo}
+                                            smooth={true}
+                                            duration={500}
+                                            aria-label={lnk.ariaLabel}
+                                            onClick={handleLinkClick}
+                                        >
+                                            <GoArrowUpRight
+                                                className="nav-card-link-icon"
+                                                aria-hidden="true"
+                                            />
+                                            {lnk.label}
+                                        </Link>
+                                    )
+                                )}
                             </div>
                         </div>
                     ))}
