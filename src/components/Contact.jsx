@@ -43,7 +43,11 @@ export default function Contact() {
                         value="31154c19-76f9-4b6b-a4ba-8aa9f8ac3a6c"
                     />
 
-                    <h2> Contact Us</h2>
+                    <h2>
+                        <span className="contact-form__heading">
+                            Contact Us
+                        </span>
+                    </h2>
                     <input
                         type="text"
                         name="full-name"

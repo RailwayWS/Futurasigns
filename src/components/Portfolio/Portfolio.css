@@ -1,0 +1,176 @@
+/* Main Container */
+.portfolio-section {
+    width: 100%;
+    min-height: 100vh;
+    background-color: transparent; /* Updated per request */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 4rem 2rem;
+    position: relative;
+    /* Changed from hidden to visible so the expanded card isn't clipped by the container */
+    overflow: visible;
+}
+
+.portfolio-container {
+    width: 100%;
+    max-width: 1200px;
+    position: relative;
+    z-index: 10;
+}
+
+.section-title {
+    color: white;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    text-align: center;
+    font-family: sans-serif;
+    font-weight: 300;
+}
+
+/* Grid Layout */
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    width: 100%;
+    /* No transition on grid itself to prevent layout thrashing */
+}
+
+/* Card Styling */
+.portfolio-card {
+    position: relative;
+    border-radius: 16px;
+    /* overflow: hidden;  <-- Removed to allow text to pop out if needed, but safe to keep if preferred */
+    overflow: hidden;
+    cursor: pointer;
+    height: 300px;
+    /* This transition handles the smooth movement for transform (translate/scale) */
+    transition: transform 0.6s cubic-bezier(0.2, 0, 0.2, 1), opacity 0.4s ease,
+        filter 0.4s ease;
+    transform-origin: center center;
+    background: #000;
+}
+
+.card-image-wrapper {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.card-overlay {
+    position: absolute;
+    inset: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* Text Content */
+.card-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 2rem;
+    opacity: 0;
+    transform: translateY(20px);
+    /* CLOSING STATE: Fade out faster (0.2s) so it's gone before any size glitches happen */
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    z-index: 20;
+    /* Counteract the scale so text doesn't look gigantic */
+    /* We handle this by using viewport units in font if needed, or keeping it simple */
+}
+
+.card-content h3 {
+    color: white;
+    font-size: 1.5rem; /* Slightly smaller base size so it scales up nicely */
+    margin-bottom: 0.5rem;
+    font-family: sans-serif;
+    /* CLOSING STATE: Wait 0.2s (until hidden) before resizing back to 1.5rem */
+    transition: font-size 0s 0.2s;
+}
+
+.card-content p {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.8rem;
+    line-height: 1.5;
+    max-width: 600px;
+    /* CLOSING STATE: Wait 0.2s (until hidden) before resizing back */
+    transition: font-size 0s 0.2s;
+}
+
+/* Hover Effects */
+.portfolio-grid:not(.has-active) .portfolio-card:hover .card-image {
+    transform: scale(1.05);
+}
+
+/* --- ACTIVE STATE --- */
+.portfolio-card.active {
+    /* No fixed position! We use the inline transform calculated in JS */
+    cursor: default;
+    /* Note: The actual transform: translate(x,y) is applied via inline styles in React */
+}
+
+.portfolio-card.active .card-content {
+    opacity: 1;
+    transform: translateY(0);
+    /* OPENING STATE: Delay the text appearance so the card has time to expand first */
+    transition: opacity 0.5s ease 0.3s, transform 0.5s ease 0.3s;
+}
+
+.portfolio-card.active .card-content h3 {
+    font-size: 1.2rem;
+    transition: font-size 0s;
+}
+.portfolio-card.active .card-content p {
+    font-size: 0.7rem;
+    transition: font-size 0s;
+}
+
+.portfolio-card.active .card-overlay {
+    background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.95) 0%,
+        rgba(0, 0, 0, 0.4) 50%,
+        transparent 100%
+    );
+}
+
+/* --- INACTIVE STATE --- */
+.portfolio-card.inactive {
+    opacity: 0.2; /* Visible but dimmed */
+    pointer-events: none;
+    transform: scale(0.95);
+}
+
+/* Backdrop */
+.portfolio-backdrop {
+    position: fixed;
+    inset: 0;
+    background: transparent; /* Kept transparent as requested */
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+    z-index: 50;
+}
+
+.portfolio-backdrop.visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+    }
+    .portfolio-card {
+        height: 250px;
+    }
+}

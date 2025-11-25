@@ -3,7 +3,7 @@ import CardNav from "./components/CardNav/CardNav";
 import Home from "./components/Home";
 import About from "./components/About";
 import Stats from "./components/Stats";
-import Portfolio from "./components/Portfolio";
+import Portfolio from "./components/Portfolio/Portfolio";
 import Contact from "./components/Contact";
 import logo from "./assets/logo.png";
 import { useState } from "react";
