@@ -7,7 +7,7 @@ import Portfolio from "./components/Portfolio";
 import Contact from "./components/Contact";
 import logo from "./assets/logo.png";
 import { useState } from "react";
-import Loading from "./components/loading";
+import Loading from "./components/Loading/loading";
 import Reveal from "./components/Reveal";
 
 export default function App() {

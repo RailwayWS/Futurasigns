@@ -1,15 +1,16 @@
 import { useEffect, useState } from "react";
+import { DotLoader } from "react-spinners";
+import "./loading.css";
 
 export default function Loading({ onComplete }) {
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
-        // Wait for window load event (all assets loaded)
         const handleLoad = () => {
             setTimeout(() => {
                 setIsLoading(false);
                 onComplete();
-            }, 2000); // Small buffer
+            }, 3000);
         };
 
         if (document.readyState === "complete") {
@@ -24,20 +25,9 @@ export default function Loading({ onComplete }) {
     if (!isLoading) return null;
 
     return (
-        <div
-            style={{
-                position: "fixed",
-                inset: 0,
-                background: "#101b24",
-                zIndex: 9999,
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                color: "white",
-            }}
-        >
-            {/*add a spinner*/}
-            <h2>Loading...</h2>
+        <div className="loading-overlay" role="presentation">
+            <DotLoader color="#ffffff" size={60} speedMultiplier={1.5} />
+            <span className="loading-overlay__label">Loading</span>
         </div>
     );
 }
