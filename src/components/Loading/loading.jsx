@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { DotLoader } from "react-spinners";
+import { HashLoader } from "react-spinners";
 import "./loading.css";
 
 export default function Loading({ onComplete }) {
@@ -26,7 +26,7 @@ export default function Loading({ onComplete }) {
 
     return (
         <div className="loading-overlay" role="presentation">
-            <DotLoader color="#ffffff" size={60} speedMultiplier={1.5} />
+            <HashLoader color="#ffffff" size={60} speedMultiplier={1.5} />
             <span className="loading-overlay__label">Loading</span>
         </div>
     );
