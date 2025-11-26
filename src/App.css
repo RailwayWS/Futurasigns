@@ -156,17 +156,13 @@
     width: 100%;
 }
 
-/* FLIP CARD LOGIC STARTS */
-
-/* 1. The Scene (Container) */
 .about-card-scene {
     background-color: transparent;
-    perspective: 1000px; /* Gives the 3D depth */
-    min-height: 420px; /* Necessary so absolute children don't collapse parent */
+    perspective: 1000px;
+    min-height: 450px;
     height: 100%;
 }
 
-/* 2. The Inner Wrapper (The object that rotates) */
 .about-card-inner {
     position: relative;
     width: 100%;
@@ -180,7 +176,6 @@
     transform: rotateY(180deg);
 }
 
-/* 3. The Faces (Front and Back shared styles) */
 .about-card-face {
     position: absolute;
     width: 100%;
@@ -190,38 +185,33 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center; /* Vertically center content */
+    justify-content: center;
     background-color: white;
     border-radius: 12px;
     padding: 40px 30px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
     top: 0;
     left: 0;
-    box-sizing: border-box; /* Ensures padding is included in width/height */
+    box-sizing: border-box;
 }
 
-/* Specifics for Front */
 .about-card-front {
     z-index: 2;
     transform: rotateY(0deg);
 }
 
-/* Specifics for Back */
 .about-card-back {
     transform: rotateY(180deg);
     padding: 50px 30px;
 }
 
-/* HOVER EFFECTS - Applied to the inner wrapper when hovering the scene */
 .about-card-scene:hover .about-card-face {
     box-shadow: 0 15px 30px rgba(16, 27, 36, 0.15);
 }
 
 .about-card-scene:hover .about-card-inner:not(.is-flipped) {
-    transform: translateY(-7px); /* Slight lift only if not flipped */
+    transform: translateY(-7px);
 }
-
-/* FLIP CARD LOGIC ENDS */
 
 .card-icon-wrapper {
     width: 100px;
