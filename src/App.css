@@ -74,12 +74,11 @@
     z-index: 1;
 }
 
-/* Base Button Styling */
 .hero-container button {
     padding: 16px 45px;
-    width: auto; /* Let padding define width, not % */
+    width: auto;
     min-width: 160px;
-    border-radius: 50px; /* Full pill shape */
+    border-radius: 50px;
     font-size: 1rem;
     font-weight: 700;
     font-family: "quicksand", sans-serif;
@@ -88,7 +87,6 @@
     letter-spacing: 0.5px;
 }
 
-/* Primary Button - Solid Brand Color */
 .hero-container .button-primary {
     background: #101b24;
     color: #ffffff;
@@ -102,13 +100,12 @@
     background: #172633;
 }
 
-/* Secondary Button - Glassmorphism Effect */
 .hero-container .button-invert {
-    background: rgba(255, 255, 255, 0.1); /* Very transparent white */
-    backdrop-filter: blur(10px); /* The "Frosted Glass" blur */
-    -webkit-backdrop-filter: blur(10px); /* Safari support */
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     color: #ffffff;
-    border: 2px solid rgba(255, 255, 255, 0.4); /* Subtle border */
+    border: 2px solid rgba(255, 255, 255, 0.4);
 }
 
 .hero-container .button-invert:hover {
