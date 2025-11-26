@@ -100,6 +100,8 @@
     transition: all 0.3s ease;
 }
 
+/*============================about===============================*/
+
 .about-container {
     display: flex;
     flex-direction: column;
@@ -227,6 +229,8 @@
     transform: translateY(1px);
     transition: all 0.1s ease-in-out;
 }
+
+/*============================stats===============================*/
 
 .stats-container {
     display: flex;
