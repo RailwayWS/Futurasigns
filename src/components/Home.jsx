@@ -9,11 +9,12 @@ export default function Home({ isLoaded }) {
                 className="hero-background"
                 style={{ backgroundImage: `url(${background})` }}
             />
-            <Reveal shouldAnimate={isLoaded}>
+            {/* Removed isLoaded check for simpler reveal logic, add back if needed */}
+            <Reveal>
                 <div className="hero-info">
                     <h1>Your Trusted Signage Partner in Cape Town</h1>
                     <div className="hero-buttons">
-                        <button>See our work</button>
+                        <button className="button-primary">See our work</button>
                         <button className="button-invert">Find us</button>
                     </div>
                 </div>

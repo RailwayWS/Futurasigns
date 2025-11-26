@@ -74,30 +74,47 @@
     z-index: 1;
 }
 
+/* Base Button Styling */
 .hero-container button {
-    padding: 15px 40px;
-    width: 50%;
-    background: #101b24;
-    color: white;
-    border-radius: 25px;
-    border: none;
-    font-size: 16px;
-    font-family: "quicksand", sans-serif;
-    cursor: pointer;
-    transition: opacity 0.3s ease;
-}
-
-.hero-container .button-invert {
-    padding: 15px 40px;
-    width: 50%;
-    background: rgb(255, 255, 255, 0.8);
-    color: #101b24;
-    border-radius: 25px;
-    border: 2px solid #101b24;
-    font-size: 16px;
+    padding: 16px 45px;
+    width: auto; /* Let padding define width, not % */
+    min-width: 160px;
+    border-radius: 50px; /* Full pill shape */
+    font-size: 1rem;
+    font-weight: 700;
     font-family: "quicksand", sans-serif;
     cursor: pointer;
     transition: all 0.3s ease;
+    letter-spacing: 0.5px;
+}
+
+/* Primary Button - Solid Brand Color */
+.hero-container .button-primary {
+    background: #101b24;
+    color: #ffffff;
+    border: none;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.hero-container .button-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    background: #172633;
+}
+
+/* Secondary Button - Glassmorphism Effect */
+.hero-container .button-invert {
+    background: rgba(255, 255, 255, 0.1); /* Very transparent white */
+    backdrop-filter: blur(10px); /* The "Frosted Glass" blur */
+    -webkit-backdrop-filter: blur(10px); /* Safari support */
+    color: #ffffff;
+    border: 2px solid rgba(255, 255, 255, 0.4); /* Subtle border */
+}
+
+.hero-container .button-invert:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-3px);
+    border-color: #ffffff;
 }
 
 /*============================about===============================*/
@@ -140,26 +157,74 @@
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 30px;
     width: 100%;
-    align-items: stretch; /* all cards same height */
 }
 
-.about-card {
+/* FLIP CARD LOGIC STARTS */
+
+/* 1. The Scene (Container) */
+.about-card-scene {
+    background-color: transparent;
+    perspective: 1000px; /* Gives the 3D depth */
+    min-height: 420px; /* Necessary so absolute children don't collapse parent */
+    height: 100%;
+}
+
+/* 2. The Inner Wrapper (The object that rotates) */
+.about-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1);
+    transform-style: preserve-3d;
+}
+
+.about-card-inner.is-flipped {
+    transform: rotateY(180deg);
+}
+
+/* 3. The Faces (Front and Back shared styles) */
+.about-card-face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center; /* Vertically center content */
     background-color: white;
     border-radius: 12px;
     padding: 40px 30px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
-    transition: all 0.3s ease;
-    position: relative;
-    height: 100%;
+    top: 0;
+    left: 0;
+    box-sizing: border-box; /* Ensures padding is included in width/height */
 }
 
-.about-card:hover {
-    transform: translateY(-7px);
+/* Specifics for Front */
+.about-card-front {
+    z-index: 2;
+    transform: rotateY(0deg);
+}
+
+/* Specifics for Back */
+.about-card-back {
+    transform: rotateY(180deg);
+    padding: 50px 30px;
+}
+
+/* HOVER EFFECTS - Applied to the inner wrapper when hovering the scene */
+.about-card-scene:hover .about-card-face {
     box-shadow: 0 15px 30px rgba(16, 27, 36, 0.15);
 }
+
+.about-card-scene:hover .about-card-inner:not(.is-flipped) {
+    transform: translateY(-7px); /* Slight lift only if not flipped */
+}
+
+/* FLIP CARD LOGIC ENDS */
 
 .card-icon-wrapper {
     width: 100px;
@@ -195,9 +260,18 @@
     font-size: 0.95rem;
     line-height: 1.7;
     color: #666;
-    flex: 1;
     margin-bottom: 30px;
 }
+
+/* Specific style for back text to ensure it looks good without icon */
+.back-text {
+    font-size: 0.9rem;
+    line-height: 1.8;
+    margin-bottom: auto; /* Push button to bottom */
+    display: flex;
+    align-items: center;
+}
+
 .card-button {
     border-radius: 6px;
     background-color: #101b24;
@@ -213,17 +287,24 @@
     transition: all 0.3s ease;
     text-transform: uppercase;
     letter-spacing: 1px;
+    margin-top: auto;
 }
 
 .card-button:hover {
     background: #101b24;
     color: #ffffff;
-    transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(16, 27, 36, 0.2);
 }
 
-.card-button:active {
-    transform: translateY(0px);
+/* Variant for the back button */
+.card-button.outline {
+    background-color: transparent;
+    color: #101b24;
+}
+
+.card-button.outline:hover {
+    background-color: #101b24;
+    color: white;
 }
 
 .about-footer-text {
