@@ -1,6 +1,8 @@
+import { useState } from "react";
 import { Element } from "react-scroll";
-import { Carousel } from "primereact/carousel";
-import { Reveal } from "./Reveal";
+import { motion, AnimatePresence } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+
 import billboard1 from "../assets/Portfolio/billboard-northpoint.jpg";
 import billboard2 from "../assets/Portfolio/billboard-northpoint2.jpg";
 import billboard3 from "../assets/Portfolio/billboard-tokaiestate.jpg";
@@ -24,60 +26,115 @@ import billboard20 from "../assets/Portfolio/vehicle-signage-llevell.jpg";
 import billboard21 from "../assets/Portfolio/vehicle-signage-mokwena.jpg";
 import billboard22 from "../assets/Portfolio/vehicle-signage-penflex.jpg";
 import billboard23 from "../assets/Portfolio/vehicle-signage-sawelding.jpg";
-import { reverseEasing } from "framer-motion";
-import { img } from "framer-motion/client";
 
-const products = [
-    { name: "Billboard 1", image: billboard1 },
-    { name: "Billboard 2", image: billboard2 },
-    { name: "Billboard 3", image: billboard3 },
-    { name: "Billboard 4", image: billboard4 },
-    { name: "Billboard 5", image: billboard5 },
-    { name: "Billboard 6", image: billboard6 },
-    { name: "Billboard 7", image: billboard7 },
-    { name: "Billboard 8", image: billboard8 },
-    { name: "Billboard 9", image: billboard9 },
-    { name: "Billboard 10", image: billboard10 },
-    { name: "Billboard 11", image: billboard11 },
-    { name: "Billboard 12", image: billboard12 },
-    { name: "Billboard 13", image: billboard13 },
-    { name: "Billboard 14", image: billboard14 },
-    { name: "Billboard 15", image: billboard15 },
-    { name: "Billboard 16", image: billboard16 },
-    { name: "Billboard 17", image: billboard17 },
-    { name: "Billboard 18", image: billboard18 },
-    { name: "Billboard 19", image: billboard19 },
-    { name: "Billboard 20", image: billboard20 },
-    { name: "Billboard 21", image: billboard21 },
-    { name: "Billboard 22", image: billboard22 },
-    { name: "Billboard 23", image: billboard23 },
+const projects = [
+    { name: "NorthPoint Billboard", image: billboard1, category: "Billboards" },
+    { name: "NorthPoint Phase 2", image: billboard2, category: "Billboards" },
+    { name: "Tokai Estate", image: billboard3, category: "Billboards" },
+    { name: "Billboard Installation", image: billboard4, category: "Billboards" },
+    { name: "Billboard Project", image: billboard5, category: "Billboards" },
+    { name: "Billboard Display", image: billboard6, category: "Billboards" },
+    { name: "Elliot Avenue Factory", image: billboard7, category: "Factory Signage" },
+    { name: "Tiger Brands Factory", image: billboard8, category: "Factory Signage" },
+    { name: "Futura Billboard", image: billboard9, category: "Billboards" },
+    { name: "Cadiz Large Format", image: billboard10, category: "Billboards" },
+    { name: "Aintree Park Office", image: billboard11, category: "Office Signage" },
+    { name: "Excellerate Office", image: billboard12, category: "Office Signage" },
+    { name: "Northlink College", image: billboard13, category: "Office Signage" },
+    { name: "Paardevlei Office", image: billboard14, category: "Office Signage" },
+    { name: "StoneThree Office", image: billboard15, category: "Office Signage" },
+    { name: "Xeon Office", image: billboard16, category: "Office Signage" },
+    { name: "Custom Signage", image: billboard17, category: "Billboards" },
+    { name: "Alplas Vehicle", image: billboard18, category: "Vehicle Signage" },
+    { name: "Groote Post Vehicle", image: billboard19, category: "Vehicle Signage" },
+    { name: "Llevell Vehicle", image: billboard20, category: "Vehicle Signage" },
+    { name: "Mokwena Vehicle", image: billboard21, category: "Vehicle Signage" },
+    { name: "Penflex Vehicle", image: billboard22, category: "Vehicle Signage" },
+    { name: "SA Welding Vehicle", image: billboard23, category: "Vehicle Signage" },
 ];
 
-const responsiveOptions = [
-    { breakpoint: "1024px", numVisible: 3, numScroll: 1 },
-    { breakpoint: "768px", numVisible: 2, numScroll: 1 },
-    { breakpoint: "560px", numVisible: 1, numScroll: 1 },
+const categories = [
+    "All",
+    "Billboards",
+    "Office Signage",
+    "Vehicle Signage",
+    "Factory Signage",
 ];
-
-const productTemplate = (product) => (
-    <div className="product-item">
-        <img src={product.image} alt={product.name} />
-    </div>
-);
 
 export default function Portfolio() {
+    const [activeFilter, setActiveFilter] = useState("All");
+    const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.1 });
+
+    const filteredProjects =
+        activeFilter === "All"
+            ? projects
+            : projects.filter((p) => p.category === activeFilter);
+
     return (
-        <Reveal>
-            <Element name="portfolio" className="portfolio-container">
-                <h2>Our Portfolio</h2>
-                <Carousel
-                    value={products}
-                    numScroll={3}
-                    numVisible={3}
-                    responsiveOptions={responsiveOptions}
-                    itemTemplate={productTemplate}
-                />
-            </Element>
-        </Reveal>
+        <Element name="portfolio" className="portfolio-container">
+            <motion.div
+                ref={ref}
+                className="portfolio-header"
+                initial={{ opacity: 0, y: 30 }}
+                animate={inView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.7 }}
+            >
+                <div className="section-badge">Our Work</div>
+                <h2>Portfolio</h2>
+                <p className="section-subtitle">
+                    A showcase of our billboard, office, vehicle, and factory
+                    signage projects across the Western Cape.
+                </p>
+            </motion.div>
+
+            <motion.div
+                className="portfolio-filters"
+                initial={{ opacity: 0, y: 20 }}
+                animate={inView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.5, delay: 0.3 }}
+            >
+                {categories.map((cat) => (
+                    <button
+                        key={cat}
+                        className={`filter-btn ${activeFilter === cat ? "active" : ""}`}
+                        onClick={() => setActiveFilter(cat)}
+                    >
+                        {cat}
+                    </button>
+                ))}
+            </motion.div>
+
+            <div className="portfolio-grid">
+                <AnimatePresence mode="popLayout">
+                    {filteredProjects.map((project) => (
+                        <motion.div
+                            key={project.name}
+                            className="portfolio-item"
+                            layout
+                            initial={{ opacity: 0, scale: 0.92 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            exit={{ opacity: 0, scale: 0.92 }}
+                            transition={{ duration: 0.35 }}
+                        >
+                            <img
+                                src={project.image}
+                                alt={project.name}
+                                loading="lazy"
+                            />
+                            <div className="portfolio-overlay">
+                                <div>
+                                    <div className="portfolio-overlay-text">
+                                        {project.name}
+                                    </div>
+                                    <div className="portfolio-overlay-category">
+                                        {project.category}
+                                    </div>
+                                </div>
+                            </div>
+                        </motion.div>
+                    ))}
+                </AnimatePresence>
+            </div>
+        </Element>
     );
 }

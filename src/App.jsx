@@ -8,7 +8,6 @@ import Contact from "./components/Contact";
 import logo from "./assets/logo.png";
 import { useState } from "react";
 import Loading from "./components/Loading/loading";
-import Reveal from "./components/Reveal";
 
 export default function App() {
     const [isLoaded, setIsLoaded] = useState(false);
@@ -33,6 +32,7 @@ export default function App() {
             links: [],
         },
     ];
+
     return (
         <>
             <Loading onComplete={() => setIsLoaded(true)} />
@@ -50,7 +50,7 @@ export default function App() {
                         items={navItems}
                         baseColor="#fff"
                         menuColor="#101b24"
-                        buttonBgColor="#101b24"
+                        buttonBgColor="#2563eb"
                         buttonTextColor="#fff"
                         buttonLabel="Contact Us"
                         buttonScrollTo="contact"
@@ -58,18 +58,16 @@ export default function App() {
                     />
 
                     <Home isLoaded={isLoaded} />
-                    <Reveal shouldAnimate={isLoaded}>
-                        <About />
-                    </Reveal>
-                    <Reveal shouldAnimate={isLoaded}>
-                        <Stats />
-                    </Reveal>
-                    <Reveal shouldAnimate={isLoaded}>
-                        <Portfolio />
-                    </Reveal>
-                    <Reveal shouldAnimate={isLoaded}>
-                        <Contact />
-                    </Reveal>
+                    <About />
+                    <Stats />
+                    <Portfolio />
+                    <Contact />
+
+                    <footer className="site-footer">
+                        © {new Date().getFullYear()} Futura Signs — All rights
+                        reserved. Built with pride in{" "}
+                        <span>Cape Town</span>.
+                    </footer>
                 </PrimeReactProvider>
             </div>
         </>
