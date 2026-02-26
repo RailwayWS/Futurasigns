@@ -4,6 +4,7 @@ import Home from "./components/Home";
 import About from "./components/About";
 import Stats from "./components/Stats";
 import Portfolio from "./components/Portfolio";
+import Process from "./components/Process";
 import Contact from "./components/Contact";
 import logo from "./assets/logo.png";
 import { useState } from "react";
@@ -60,6 +61,7 @@ export default function App() {
                     <Home isLoaded={isLoaded} />
                     <About />
                     <Stats />
+                    <Process />
                     <Portfolio />
                     <Contact />
 
