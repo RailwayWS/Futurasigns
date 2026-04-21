@@ -18,18 +18,21 @@ export default function App() {
             label: "About",
             bgColor: "#101b24",
             textColor: "#fff",
+            scrollTo: "about",
             links: [],
         },
         {
             label: "Portfolio",
             bgColor: "#1a2730",
             textColor: "#fff",
+            scrollTo: "portfolio",
             links: [],
         },
         {
             label: "Contact Us",
             bgColor: "#24333c",
             textColor: "#fff",
+            scrollTo: "contact",
             links: [],
         },
     ];
@@ -67,8 +70,7 @@ export default function App() {
 
                     <footer className="site-footer">
                         © {new Date().getFullYear()} Futura Signs — All rights
-                        reserved. Built with pride in{" "}
-                        <span>Cape Town</span>.
+                        reserved. Built with pride in <span>Cape Town</span>.
                     </footer>
                 </PrimeReactProvider>
             </div>

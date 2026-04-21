@@ -61,7 +61,7 @@ export default function Contact() {
                     transition={{ duration: 0.6, delay: 0.2 }}
                 >
                     {contactCards.map((card, i) => (
-                        <motion.div
+                        <div
                             key={card.title}
                             className="contact-card"
                             initial={{ opacity: 0, y: 20 }}
@@ -78,7 +78,7 @@ export default function Contact() {
                                 <h3>{card.title}</h3>
                                 <p>{card.detail}</p>
                             </div>
-                        </motion.div>
+                        </div>
                     ))}
 
                     {/* Embedded Google Map */}

@@ -947,6 +947,22 @@
     .parallax-bg {
         background-attachment: scroll;
     }
+
+    .parallax-heading {
+        font-size: clamp(1.5rem, 3.5vw, 2rem);
+    }
+
+    .parallax-description {
+        font-size: 0.95rem;
+    }
+
+    .parallax-stat-number {
+        font-size: 1.5rem;
+    }
+
+    .parallax-stat-label {
+        font-size: 0.75rem;
+    }
 }
 
 /* ══════════════════════════════════════════
